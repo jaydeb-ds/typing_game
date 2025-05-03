@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #243234
+}
+
+.wrapper{
+    color: white;
+    background-color: rgb(24, 24, 30);
+    width: 770px;
+    padding: 30px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.typing-text{
+    height: 300px;
+    overflow: hidden;
+}
+
+.result-details{
+    display:  flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    /* border: 2px solid black; */
+}
+.result-details li{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid rgb(170, 193, 20);
+    border-radius: 10px;
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content:  space-around;
+}
+.content button{
+    background-color: aqua;
+    width: 100px;
+    height: 40px;
+}
+
+.input-field {
+   opacity: 0;
+}
+
+.typing-text p span.correct{
+    color: rgb(34, 132, 34);
+}
+.typing-text p span.incorrect{
+    color: rgb(208, 13, 13);
+}
+
+.typing-text p span.active{
+    border:2px solid yellow;
+    
+}
+
+/* .typing-text p span.active::before{
+    content: "";
+    
+} */
