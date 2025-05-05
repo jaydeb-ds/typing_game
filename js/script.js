@@ -5,13 +5,28 @@ const mistakeTag = document.querySelector(".mistake span")
 const timeTag = document.querySelector(".time span")
 const wpmTag = document.querySelector(".wpm span")
 const againBotton = document.querySelector(".againBtn")
+const setTimer = document.querySelector("select")
 let charIndex = 0
 let mistake = 0
 let isTyping = 0
+let maxTime = 60
+setTimer.addEventListener("change",(e)=>{
+    let time = e.target.value
+
+    maxTime = parseInt(time)
+    timeLeft = maxTime
+    timeTag.innerHTML = timeLeft
+
+    console.log("selecton",maxTime);
+    console.log(timer);
+    console.log(timeLeft);
+    
+})
+
 
 let timer,
-maxTime= 60,
 timeLeft = maxTime+1
+let wpm;
 
 function randomParagraph() {
     let randomIndex = Math.floor(Math.random() * paragraphs.length)
@@ -59,13 +74,14 @@ if(charIndex < characters.length - 1 && timeLeft > 0) {
     characters[0].classList.remove("active")
     mistakeTag.innerHTML = mistake
 
-    let wpm = Math.round((((charIndex-mistake) / 6) / (maxTime - timeLeft)) * 60)
+    wpm= Math.round((((charIndex-mistake) / 5) / (maxTime - timeLeft)) * 60)
     wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm
     wpmTag.innerHTML = wpm
 }
     else {
         inputField.value= ""
         clearInterval(timer)
+        alert(`\n WPM : ${wpm} \nMistakes : ${mistake} \n press 'OK' to restart`,window.location.reload())
     }
   
 }
@@ -90,3 +106,4 @@ inputField.addEventListener('input', initTyping)
 againBotton.addEventListener("click",()=>{
     window.location.reload()
 })
+
